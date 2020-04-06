@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "594846045637",
+    "firebase_url": "https://mcare-241b9.firebaseio.com",
+    "project_id": "mcare-241b9",
+    "storage_bucket": "mcare-241b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594846045637:android:a44e6d75a21ca401bde7ac",
+        "android_client_info": {
+          "package_name": "com.example.mcare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594846045637-uh2l3rr0trlvj4slnbgltqgebtvk3gdt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mcare",
+            "certificate_hash": "f07ea6ef0003b32dc539ce0e5dd3aa428a842a9d"
+          }
+        },
+        {
+          "client_id": "594846045637-h738ueua96o479l5t9llfqeci2uapgev.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPfc5PVNEkIkKym9Fc18tXLxgpBeBe6w8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594846045637-h738ueua96o479l5t9llfqeci2uapgev.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

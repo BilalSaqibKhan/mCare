@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewPostActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/main_toolbar"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+
+    <ProgressBar
+        android:id="@+id/new_post_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:indeterminate="true"
+        android:layout_below="@id/new_post_image"/>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/new_post_image"
+        android:layout_centerHorizontal="true"
+        android:background="#ffffff"
+        android:src="@drawable/add_btn"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:layout_below="@id/main_toolbar"/>
+
+    <EditText
+        android:id="@+id/new_post_title"
+        android:layout_width="387dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/new_post_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:hint="Post Title..."
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:singleLine="true"
+        android:maxLength="40"/>
+
+    <EditText
+        android:id="@+id/new_post_desc"
+        android:layout_width="387dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/new_post_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="0dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:padding="20dp"
+        android:hint="Post Description..."
+        android:maxLength="100"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/post_btn"
+        android:text="Publish New Report"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"/>
+
+
+
+</RelativeLayout>

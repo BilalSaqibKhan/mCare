@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CommentsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/comments_toolbar"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+
+    <ProgressBar
+        android:id="@+id/comments_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:indeterminate="true"
+        android:layout_below="@id/comments_toolbar"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/comment_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/comments_toolbar"
+        android:layout_above="@id/comment_field"
+        android:layout_marginTop="13dp" />
+
+    <EditText
+        android:id="@+id/comment_field"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:hint="Your Comment here..."
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:maxLength="80"
+        android:backgroundTint="@color/colorPrimary"/>
+
+    <ImageView
+        android:id="@+id/comment_post_btn"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="21dp"
+        android:layout_marginBottom="17dp"
+        android:layout_toRightOf="@id/comment_field"
+        android:src="@drawable/ic_send"
+        android:backgroundTint="@color/colorPrimary"/>
+
+</RelativeLayout>

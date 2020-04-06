@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity"
+    android:padding="20dp">
+
+
+    <ProgressBar
+        android:id="@+id/reg_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:indeterminate="true"/>
+
+
+    <EditText
+        android:id="@+id/reg_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        tools:layout_editor_absoluteX="87dp"
+        tools:layout_editor_absoluteY="21dp"
+        android:hint="Email..."/>
+
+    <EditText
+        android:id="@+id/reg_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="76dp"
+        android:hint="Password..."
+        android:layout_below="@id/reg_email"/>
+
+    <EditText
+        android:id="@+id/reg_confirm_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="76dp"
+        android:hint="Confirm Password..."
+        android:layout_below="@id/reg_pass"/>
+
+
+    <Button
+        android:id="@+id/reg_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="setup account"
+        tools:layout_editor_absoluteX="140dp"
+        tools:layout_editor_absoluteY="135dp"
+        android:layout_below="@id/reg_confirm_pass"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#ffffff"/>
+
+
+
+    <Button
+        android:id="@+id/reg_login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="i already have an account"
+        tools:layout_editor_absoluteX="140dp"
+        tools:layout_editor_absoluteY="135dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"/>
+
+
+
+</RelativeLayout>

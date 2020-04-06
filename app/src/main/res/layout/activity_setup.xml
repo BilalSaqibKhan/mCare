@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SetupActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/setup_toolbar"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+
+    <ProgressBar
+        android:id="@+id/setup_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:indeterminate="true"
+        android:layout_below="@id/setup_toolbar"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/setup_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        app:civ_border_color="#000000"
+        app:civ_border_width="1dp"
+        android:src="@drawable/default_image"/>
+
+    <EditText
+        android:id="@+id/setup_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="76dp"
+        android:hint="Your Name..."
+        android:layout_below="@id/setup_image"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:padding="20dp"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/setup_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save account settings"
+        tools:layout_editor_absoluteX="140dp"
+        tools:layout_editor_absoluteY="135dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@id/setup_name"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff" />
+
+
+</RelativeLayout>
