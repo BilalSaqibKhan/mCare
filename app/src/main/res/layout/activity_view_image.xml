@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewImage">
+    tools:context=".ViewImage"
+    android:background="#242323">
 
     <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/photo_view"
