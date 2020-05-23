@@ -2,7 +2,10 @@ package com.example.mcare;
 
 import android.content.Context;
 import android.content.Intent;
-import android.text.format.DateFormat;
+
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +20,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.Date;
 import java.util.List;
 
@@ -59,7 +60,7 @@ public class BlogRecyclerAdapter extends RecyclerView.Adapter<BlogRecyclerAdapte
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
         final String blogPostId = blog_list.get(position).BlogPostId;
-        final String currentUserId = firebaseAuth.getCurrentUser().getUid();
+        //final String currentUserId = firebaseAuth.getCurrentUser().getUid();
 
         final String title_data = blog_list.get(position).getTitle();
         holder.setTitleText(title_data);
@@ -114,6 +115,36 @@ public class BlogRecyclerAdapter extends RecyclerView.Adapter<BlogRecyclerAdapte
             }
         });
 
+        //Share Feature
+        holder.blogShareBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Bitmap bitmap = ((BitmapDrawable) holder.blogImageView.getDrawable()).getBitmap();
+                File file = new File(context.getExternalCacheDir(), "sample.png");
+                FileOutputStream fout = null;
+                try {
+                    fout = new FileOutputStream(file);
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, fout);
+                    fout.flush();
+                    fout.close();
+                    file.setReadable(true, false);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                shareIntent.setType("image/png");
+                //shareIntent.setPackage("com.whatsapp");
+                String s = title_data + "\n" + desc_data;
+                shareIntent.putExtra(Intent.EXTRA_TEXT, s);
+                shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
+                context.startActivity(Intent.createChooser(shareIntent, "Share via"));
+
+            }
+        });
+
 
         //long millisecond = blog_list.get(position).getTimestamp().getTime();
         //String dateString = DateFormat.format("MM/dd/yyyy", new Date(millisecond)).toString();
@@ -139,12 +170,14 @@ public class BlogRecyclerAdapter extends RecyclerView.Adapter<BlogRecyclerAdapte
 
         private ImageView blogCommentBtn;
         private TextView blogCommentCount;
+        private ImageView blogShareBtn;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             mView = itemView;
 
             blogCommentBtn = mView.findViewById(R.id.blog_comment_btn);
+            blogShareBtn = mView.findViewById(R.id.blog_share_btn);
         }
 
         public void setTitleText(String titleText)
