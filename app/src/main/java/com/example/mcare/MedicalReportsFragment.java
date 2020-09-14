@@ -8,10 +8,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -159,5 +160,40 @@ public class MedicalReportsFragment extends Fragment {
         });
 
     }
+
+/*
+    private void searchData(String s)
+    {
+        firebaseFirestore.collection("Posts")
+                .whereEqualTo("title", s)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        //Searching success
+                        blog_list.clear();
+
+                        for (DocumentChange doc : queryDocumentSnapshots.getDocumentChanges()) {
+                            if (doc.getType() == DocumentChange.Type.ADDED) {
+
+                                String blogPostId = doc.getDocument().getId();
+                                BlogPost blogPost = doc.getDocument().toObject(BlogPost.class).withId(blogPostId);
+
+                                blog_list.add(blogPost);
+
+                                blogRecyclerAdapter.notifyDataSetChanged();
+                            }
+                        }
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                //Searching faliure
+                //Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+*/
 
 }

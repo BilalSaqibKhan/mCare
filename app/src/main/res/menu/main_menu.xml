@@ -5,7 +5,8 @@
     <item android:title="Search"
         android:id="@+id/action_search_btn"
         android:icon="@drawable/ic_search_white_24dp"
-        app:showAsAction="always"/>
+        app:showAsAction="always"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"/>
 
     <item android:title="Add"
         android:id="@+id/action_add_btn"
