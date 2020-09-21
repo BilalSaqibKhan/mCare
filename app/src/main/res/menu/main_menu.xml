@@ -16,6 +16,9 @@
     <item android:title="Account Settings"
         android:id="@+id/action_settings_btn"/>
 
+    <item android:title="Feedback"
+        android:id="@+id/action_feedback_btn"/>
+
     <item android:title="Logout"
         android:id="@+id/action_logout_btn"/>
 </menu>

@@ -76,12 +76,12 @@ public class BlogRecyclerAdapter extends RecyclerView.Adapter<BlogRecyclerAdapte
         //user id of user that have posted
         final String user_id = blog_list.get(position).getUser_id();
 
-
+/*
         if(user_id.equals(currentUserId)){
             holder.blogPostDeleteBtn.setEnabled(true);
             holder.blogPostDeleteBtn.setVisibility(View.VISIBLE);
         }
-
+*/
 
         //user data will be retrieved here...........
         firebaseFirestore.collection("Users").document(user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -126,6 +126,7 @@ public class BlogRecyclerAdapter extends RecyclerView.Adapter<BlogRecyclerAdapte
             }
         });
 
+        /*
         //delete post feature
         holder.blogPostDeleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,6 +142,7 @@ public class BlogRecyclerAdapter extends RecyclerView.Adapter<BlogRecyclerAdapte
 
             }
         });
+        */
 
         //Share Feature
         holder.blogShareBtn.setOnClickListener(new View.OnClickListener() {

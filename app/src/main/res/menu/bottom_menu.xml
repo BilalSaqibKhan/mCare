@@ -10,8 +10,8 @@
         android:icon="@drawable/ic_library_books_black_24dp"
         android:id="@+id/bottom_action_reports"/>
 
-    <item android:title="Account"
-        android:icon="@drawable/ic_account_circle_black_24dp"
+    <item android:title="Fuse Images"
+        android:icon="@drawable/ic_fuse_image_24dp"
         android:id="@+id/bottom_action_account"/>
 
 </menu>

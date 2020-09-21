@@ -193,6 +193,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(settingsIntent);
                 return true;
 
+            case R.id.action_feedback_btn:
+                Intent feedbackIntent = new Intent(MainActivity.this, FeedbackActivity.class);
+                startActivity(feedbackIntent);
+                return true;
+
             case R.id.action_add_btn:
                 Intent newPostIntent = new Intent(MainActivity.this, NewPostActivity.class);
                 startActivity(newPostIntent);
