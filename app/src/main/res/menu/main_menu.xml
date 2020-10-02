@@ -16,6 +16,9 @@
     <item android:title="Account Settings"
         android:id="@+id/action_settings_btn"/>
 
+    <item android:title="News"
+        android:id="@+id/action_news_btn"/>
+
     <item android:title="Feedback"
         android:id="@+id/action_feedback_btn"/>
 

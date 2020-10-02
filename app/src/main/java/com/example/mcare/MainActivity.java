@@ -193,6 +193,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(settingsIntent);
                 return true;
 
+            case R.id.action_news_btn:
+                Intent newsIntent = new Intent(MainActivity.this, NewsActivity.class);
+                startActivity(newsIntent);
+                return true;
+
             case R.id.action_feedback_btn:
                 Intent feedbackIntent = new Intent(MainActivity.this, FeedbackActivity.class);
                 startActivity(feedbackIntent);
