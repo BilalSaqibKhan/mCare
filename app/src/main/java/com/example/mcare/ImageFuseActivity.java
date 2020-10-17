@@ -98,7 +98,7 @@ public class ImageFuseActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 pd.dismiss();
-                                Toast.makeText(getApplicationContext(), "Done", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "Tap on image to save on gallery", Toast.LENGTH_LONG).show();
                             }
                         }, 5000);
                         //end thread

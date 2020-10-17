@@ -116,7 +116,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         }
                                     }
                                     if (hasFound.equals(false)){
-                                        Toast.makeText(RegisterActivity.this, "User not Registered", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(RegisterActivity.this, "User not Registered on PMDC record", Toast.LENGTH_SHORT).show();
                                         reg_progress.setVisibility(View.INVISIBLE);
                                     }
 

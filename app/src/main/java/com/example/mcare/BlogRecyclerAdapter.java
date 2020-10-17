@@ -116,8 +116,16 @@ public class BlogRecyclerAdapter extends RecyclerView.Adapter<BlogRecyclerAdapte
         });
 
 
-        //Comments Feature
+        //Comments Feature/////////////////////////
         holder.blogCommentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent commentsIntent = new Intent(context, CommentsActivity.class);
+                commentsIntent.putExtra("blog_post_id", blogPostId);
+                context.startActivity(commentsIntent);
+            }
+        });
+        holder.blogCommentCount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent commentsIntent = new Intent(context, CommentsActivity.class);
@@ -208,6 +216,7 @@ public class BlogRecyclerAdapter extends RecyclerView.Adapter<BlogRecyclerAdapte
             mView = itemView;
 
             blogCommentBtn = mView.findViewById(R.id.blog_comment_btn);
+            blogCommentCount = mView.findViewById(R.id.blog_comment_count);
             blogShareBtn = mView.findViewById(R.id.blog_share_btn);
             blogPostDeleteBtn = mView.findViewById(R.id.blog_post_delete_btn);
         }
