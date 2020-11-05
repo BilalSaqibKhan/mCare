@@ -84,7 +84,6 @@ public class ImageFuseActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                pd.show();
 
                 if(source1 != null && source2 != null)
                 {
@@ -92,21 +91,9 @@ public class ImageFuseActivity extends AppCompatActivity {
                     if(processedBitmap != null)
                     {
                         imageResult.setImageBitmap(processedBitmap);
+                        //////////////////////////////////////////
+                    }
 
-                        //thread
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                pd.dismiss();
-                                Toast.makeText(getApplicationContext(), "Tap on image to save on gallery", Toast.LENGTH_LONG).show();
-                            }
-                        }, 5000);
-                        //end thread
-                    }
-                    else
-                    {
-                        Toast.makeText(getApplicationContext(), "Something wrong in processing!", Toast.LENGTH_LONG).show();
-                    }
                 }
                 else
                 {
@@ -193,40 +180,54 @@ public class ImageFuseActivity extends AppCompatActivity {
             bm2 = BitmapFactory.decodeStream(
                     getContentResolver().openInputStream(source2));
 
-            int w;
-            if(bm1.getWidth() >= bm2.getWidth()){
-                w = bm1.getWidth();
-            }else{
-                w = bm2.getWidth();
+            if (bm1.getWidth() == 256 && bm1.getHeight() == 256 && bm2.getWidth() == 256 && bm2.getHeight() == 256) {
+                pd.show();
+
+                int w;
+                if (bm1.getWidth() >= bm2.getWidth()) {
+                    w = bm1.getWidth();
+                } else {
+                    w = bm2.getWidth();
+                }
+
+                int h;
+                if (bm1.getHeight() >= bm2.getHeight()) {
+                    h = bm1.getHeight();
+                } else {
+                    h = bm2.getHeight();
+                }
+
+                Bitmap.Config config = bm1.getConfig();
+                if (config == null) {
+                    config = Bitmap.Config.ARGB_8888;
+                }
+
+                newBitmap = Bitmap.createBitmap(w, h, config);
+                Canvas newCanvas = new Canvas(newBitmap);
+
+                newCanvas.drawBitmap(bm1, 0, 0, null);
+
+                Paint paint = new Paint();
+
+                //int selectedPos = spinnerMode.getSelectedItemPosition();
+                //PorterDuff.Mode selectedMode = arrayMode[selectedPos];
+                PorterDuff.Mode selectedMode = PorterDuff.Mode.ADD;
+
+
+                paint.setXfermode(new PorterDuffXfermode(selectedMode));
+                newCanvas.drawBitmap(bm2, 0, 0, paint);
+
+                //thread
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        pd.dismiss();
+                        Toast.makeText(getApplicationContext(), "Tap on image to save on gallery", Toast.LENGTH_LONG).show();
+                    }
+                }, 3500);
+                //end thread
             }
-
-            int h;
-            if(bm1.getHeight() >= bm2.getHeight()){
-                h = bm1.getHeight();
-            }else{
-                h = bm2.getHeight();
-            }
-
-            Bitmap.Config config = bm1.getConfig();
-            if(config == null){
-                config = Bitmap.Config.ARGB_8888;
-            }
-
-            newBitmap = Bitmap.createBitmap(w, h, config);
-            Canvas newCanvas = new Canvas(newBitmap);
-
-            newCanvas.drawBitmap(bm1, 0, 0, null);
-
-            Paint paint = new Paint();
-
-            //int selectedPos = spinnerMode.getSelectedItemPosition();
-            //PorterDuff.Mode selectedMode = arrayMode[selectedPos];
-            PorterDuff.Mode selectedMode = PorterDuff.Mode.ADD;
-
-
-            paint.setXfermode(new PorterDuffXfermode(selectedMode));
-            newCanvas.drawBitmap(bm2, 0, 0, paint);
-
+            else {Toast.makeText(this, "App cannot recognise selected image", Toast.LENGTH_SHORT).show();}
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
